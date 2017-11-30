@@ -1,0 +1,39 @@
+---
+services: Compute
+platforms: .Net
+author: anuchandy
+---
+
+# Getting Started with Compute - Manage Virtual Machine From MSI Enabled Virtual Machine - in .Net #
+
+          Azure Compute sample for managing virtual machine from Managed Service Identity (MSI) enabled virtual machine -
+            - Create a virtual machine using MSI credentials from MSI enabled VM
+            - Delete the virtual machine using MSI credentials from MSI enabled VM.
+            
+          Automation testing cannot be enabled for this sample since it can be run only from an Azure virtual machine 
+          with MSI enabled.
+
+
+## Running this Sample ##
+
+To run this sample:
+
+Set the environment variable `AZURE_AUTH_LOCATION` with the full path for an auth file. See [how to create an auth file](https://github.com/Azure/azure-sdk-for-net/blob/Fluent/AUTH.md).
+
+    git clone https://github.com/Azure-Samples/compute-dotnet-manage-vm-from-vm-with-msi-credentials.git
+
+    cd compute-dotnet-manage-vm-from-vm-with-msi-credentials
+
+    dotnet restore
+
+    dotnet run
+
+## More information ##
+
+[Azure Management Libraries for C#](https://github.com/Azure/azure-sdk-for-net/tree/Fluent)
+[Azure .Net Developer Center](https://azure.microsoft.com/en-us/develop/net/)
+If you don't have a Microsoft Azure subscription you can get a FREE trial account [here](http://go.microsoft.com/fwlink/?LinkId=330212)
+
+---
+
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
