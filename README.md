@@ -7,11 +7,7 @@ author: anuchandy
 # Getting Started with Compute - Manage Virtual Machine From MSI Enabled Virtual Machine - in .Net #
 
           Azure Compute sample for managing virtual machine from Managed Service Identity (MSI) enabled virtual machine -
-            - Create a virtual machine using MSI credentials from MSI enabled VM
-            - Delete the virtual machine using MSI credentials from MSI enabled VM.
-            
-          Automation testing cannot be enabled for this sample since it can be run only from an Azure virtual machine 
-          with MSI enabled.
+            - Create a virtual machine using MSI credentials from System assigned or User Assigned MSI enabled VM.
 
 
 ## Running this Sample ##
