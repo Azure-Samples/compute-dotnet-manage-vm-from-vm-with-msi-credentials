@@ -4,15 +4,15 @@ languages:
 - csharp
 products:
 - azure
-services: Compute
-platforms: dotnet
-author: yaohaizh
+extensions:
+- services: Compute
+- platforms: dotnet
 ---
 
 # Getting started on managing Azure VM from a virtual machine using with managed service identity (MSI) credentials #
 
-          Azure Compute sample for managing virtual machine from Managed Service Identity (MSI) enabled virtual machine -
-            - Create a virtual machine using MSI credentials from System assigned or User Assigned MSI enabled VM.
+ Azure Compute sample for managing virtual machine from Managed Service Identity (MSI) enabled virtual machine -
+   - Create a virtual machine using MSI credentials from System assigned or User Assigned MSI enabled VM.
 
 
 ## Running this Sample ##
