@@ -8,6 +8,7 @@ extensions:
 - services: Compute
 - platforms: dotnet
 description: "Azure Compute sample for managing virtual machine from Managed Service Identity (MSI) enabled virtual machine."
+urlFragment: getting-started-managing-azure-vm
 ---
 
 # Getting started on managing Azure VM from a virtual machine using with managed service identity (MSI) credentials #
