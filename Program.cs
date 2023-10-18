@@ -1,14 +1,20 @@
 ﻿// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 
-using Microsoft.Azure.Management.Compute.Fluent;
-using Microsoft.Azure.Management.Compute.Fluent.Models;
-using Microsoft.Azure.Management.Fluent;
-using Microsoft.Azure.Management.ResourceManager.Fluent;
-using Microsoft.Azure.Management.ResourceManager.Fluent.Authentication;
-using Microsoft.Azure.Management.ResourceManager.Fluent.Core;
-using Microsoft.Azure.Management.Samples.Common;
-using System;
+using Azure;
+using Azure.Core;
+using Azure.Identity;
+using Azure.ResourceManager.Resources.Models;
+using Azure.ResourceManager.Samples.Common;
+using Azure.ResourceManager.Resources;
+using Azure.ResourceManager;
+using System.Net;
+using Azure.ResourceManager.Network.Models;
+using Azure.ResourceManager.Network;
+using Azure.ResourceManager.Compute.Models;
+using Azure.ResourceManager.Compute;
+using System.Net.NetworkInformation;
+using System.Xml.Linq;
 
 namespace ManageVirtualMachineFromMSIEnabledVirtualMachine
 {
@@ -25,19 +31,19 @@ namespace ManageVirtualMachineFromMSIEnabledVirtualMachine
             //
             // see https://github.com/Azure-Samples/compute-dotnet-manage-user-assigned-msi-enabled-virtual-machine.git
             //
-            string usage = "Usage: dotnet run <subscription-id> <rg-name> [<client-id>]";
-            if (args.Length < 2)
-            {
-                throw new ArgumentException(usage);
-            }
 
-            string subscriptionId = args[0];
-            string resourceGroupName = args[1];
-            string clientId = args.Length > 2 ? args[2] : null;
-            Region region = Region.USWestCentral;
-            string linuxVMName = SdkContext.RandomResourceName("vm", 30);
+            var clientId = Environment.GetEnvironmentVariable("CLIENT_ID");
+            var clientSecret = Environment.GetEnvironmentVariable("CLIENT_SECRET");
+            var tenantId = Environment.GetEnvironmentVariable("TENANT_ID");
+            var subscriptionId = Environment.GetEnvironmentVariable("SUBSCRIPTION_ID");
+            ClientSecretCredential credential = new ClientSecretCredential(tenantId, clientId, clientSecret);
+            ArmClient client = new ArmClient(credential, subscriptionId);
+
+            string resourceGroupName = Utilities.CreateRandomName("ComputeSampleRG");
+            string linuxVMName = Utilities.CreateRandomName("vm");
             string userName = Utilities.CreateUsername();
             string password = Utilities.CreatePassword();
+            AzureLocation region = AzureLocation.EastUS;
 
             //=============================================================
             // MSI Authenticate
