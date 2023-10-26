@@ -46,8 +46,6 @@ namespace ManageVirtualMachineFromMSIEnabledVirtualMachine
             string userName = Utilities.CreateUsername();
             string password = Utilities.CreatePassword();
 
-
-
             //=============================================================
             // MSI Authenticate
 
